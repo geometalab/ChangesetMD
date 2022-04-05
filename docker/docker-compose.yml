@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  db:
+    # example:
+    # wget -O changeset-latest.osm.gz https://planet.openstreetmap.org/replication/changesets/004/920/593.osm.gz
+    # python changesetmd.py -d postgres -p postgres -P 5555 -u postgres -H localhost -c -g -f changeset-latest.osm
+    image: postgis/postgis:14-3.2
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5555:5432"

@@ -1,2 +1,2 @@
-*.py[c|o]
+docker/
 __pycache__/

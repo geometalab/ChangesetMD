@@ -9,3 +9,15 @@ services:
       - POSTGRES_PASSWORD=postgres
     ports:
       - "5555:5432"
+
+  changesetmd:
+    # image: TBD
+    # docker-compose run --rm changesetmd -d postgres -p postgres -P 5432 -u postgres -H db -c -g -f changeset-latest.osm
+    # when DB already created tables:
+    # docker-compose run --rm changesetmd -d postgres -p postgres -P 5432 -u postgres -H db -g -f changeset-latest.osm
+    build: 
+      context: ../
+      dockerfile: docker/Dockerfile
+    volumes:
+      - ..:/code/changesetmd
+    entrypoint: ["python", "changesetmd.py"]
